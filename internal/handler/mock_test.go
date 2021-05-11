@@ -2,6 +2,7 @@ package handler
 
 import "github.com/pcherednichenko/users/internal/models"
 
+// MockDB for test
 type MockDB struct {
 	OnGet            func(id int, result *models.User) error
 	OnCreate         func(value *models.User) error

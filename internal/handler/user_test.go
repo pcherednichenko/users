@@ -7,14 +7,15 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/pcherednichenko/users/internal/models"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/zap"
+
+	"github.com/pcherednichenko/users/internal/models"
 )
 
 func TestGetUser(t *testing.T) {
 	cases := map[string]struct {
-		url string
+		url          string
 		user         models.User
 		errorMsg     string
 		expected     string
@@ -31,14 +32,14 @@ func TestGetUser(t *testing.T) {
 				Email:     "Test-4",
 				Country:   "Test-5",
 			},
-			expected: `{"ID":1,"FirstName":"Test","LastName":"Test-1","Nickname":"Test-2","Password":"Test-3","Email":"Test-4","Country":"Test-5"}`,
+			expected:     `{"ID":1,"FirstName":"Test","LastName":"Test-1","Nickname":"Test-2","Password":"Test-3","Email":"Test-4","Country":"Test-5"}`,
 			expectedCode: http.StatusOK,
 		},
 		"error case": {
-			url: "/user/1",
-			user:     models.User{},
-			errorMsg: "wrong something",
-			expected: `wrong something`,
+			url:          "/user/1",
+			user:         models.User{},
+			errorMsg:     "wrong something",
+			expected:     `wrong something`,
 			expectedCode: http.StatusInternalServerError,
 		},
 		"few fields case": {
@@ -49,7 +50,7 @@ func TestGetUser(t *testing.T) {
 				LastName:  "Test-1",
 				Nickname:  "Test-2",
 			},
-			expected: `{"ID":1,"FirstName":"Test","LastName":"Test-1","Nickname":"Test-2","Password":"","Email":"","Country":""}`,
+			expected:     `{"ID":1,"FirstName":"Test","LastName":"Test-1","Nickname":"Test-2","Password":"","Email":"","Country":""}`,
 			expectedCode: http.StatusOK,
 		},
 		"error case with user info": {
@@ -63,15 +64,15 @@ func TestGetUser(t *testing.T) {
 				Email:     "Test-4",
 				Country:   "Test-5",
 			},
-			errorMsg: "wrong something test",
-			expected: `wrong something test`,
+			errorMsg:     "wrong something test",
+			expected:     `wrong something test`,
 			expectedCode: http.StatusInternalServerError,
 		},
 		"error case with wrong url": {
-			url: "/user/test",
-			user: models.User{},
-			errorMsg: "wrong something test",
-			expected: `404 page not found`,
+			url:          "/user/test",
+			user:         models.User{},
+			errorMsg:     "wrong something test",
+			expected:     `404 page not found`,
 			expectedCode: http.StatusNotFound,
 		},
 	}

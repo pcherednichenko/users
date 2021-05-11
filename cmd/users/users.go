@@ -1,12 +1,12 @@
 package main
 
 import (
+	"go.uber.org/zap"
+
 	"github.com/pcherednichenko/users/internal"
 	"github.com/pcherednichenko/users/internal/config"
-	"go.uber.org/zap"
 )
 
-//
 // @title Users API
 // @version 1.0
 // @description This is example of creating a rest api for storage and user handling system with db

@@ -15,7 +15,7 @@ services:
       POSTGRES_USER: test_user
       POSTGRES_DB: test_db
 
-  main:
+  main: # main golang microservice
     build:
       context: .
       dockerfile: Dockerfile

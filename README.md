@@ -24,7 +24,6 @@ http://localhost:8080/swagger/
 
 To run tests with coverage, race condition and disabled cache, run:
 ```bash
-make init
 make test
 ```
 
@@ -52,4 +51,3 @@ You can use env variables for configuration:
 ### What can I improve here?
 
 I left a lot of **todo** in the code for us to work on
-

@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
+
 	"github.com/pcherednichenko/users/internal/models"
 	"github.com/pcherednichenko/users/pkg/password"
 	"github.com/pcherednichenko/users/pkg/response"
@@ -95,10 +96,6 @@ func (s *server) updateUser(w http.ResponseWriter, r *http.Request) {
 	}
 	user.ID = userID
 	response.Ok(s.l, w, user)
-}
-
-type DeleteRequest struct {
-	UserID string
 }
 
 func (s *server) deleteUser(w http.ResponseWriter, r *http.Request) {

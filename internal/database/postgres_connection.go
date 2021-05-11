@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/jinzhu/gorm/dialects/postgres" // we need that for swagger documentation
 
 	"github.com/pcherednichenko/users/internal/config"
 	"github.com/pcherednichenko/users/internal/models"
@@ -12,6 +12,7 @@ import (
 
 const notFoundErr = "user with id %d not found"
 
+// PostgresDB contains basically connection to postgres with gorm to run queries
 type PostgresDB struct {
 	db *gorm.DB
 }

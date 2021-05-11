@@ -3,10 +3,10 @@ package handler
 import (
 	"net/http"
 
-	_ "github.com/pcherednichenko/users/docs"
+	"github.com/gorilla/mux"
 	httpSwagger "github.com/swaggo/http-swagger"
 
-	"github.com/gorilla/mux"
+	_ "github.com/pcherednichenko/users/docs" // we need that for swaggers docs
 )
 
 // Router contains all possible routes of our service to handle

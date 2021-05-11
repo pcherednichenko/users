@@ -32,11 +32,10 @@ func LoadConfigFromEnv(l env.Logger) Config {
 			Port: env.GetOrDefault(l, "PORT", ":8080"),
 		},
 		Database{
-			User: env.GetOrDefault(l, "DB_USER", "test_user"),
+			User:     env.GetOrDefault(l, "DB_USER", "test_user"),
 			Password: env.GetOrDefault(l, "DB_PASS", "test_pass"),
-			Host: env.GetOrDefault(l, "DB_HOST", "postgres"),
-			DBName: env.GetOrDefault(l, "DB_NAME", "test_db"),
+			Host:     env.GetOrDefault(l, "DB_HOST", "postgres"),
+			DBName:   env.GetOrDefault(l, "DB_NAME", "test_db"),
 		},
 	}
 }
-
